@@ -11,10 +11,15 @@ var question = require('question');
  * Expose
  */
 
+function requireLogin(req, res, next){
+    if(!req.user) throw new Error("You must be logged in to continue");
+    else next();
+}
+
 module.exports = function (app, passport) {
 
   app.get('/', home.index);
-  app.use('/question', question);
+  app.use('/question', requireLogin, question);
 
   app.use('/login', passport.authenticate('github'));
   app.use('/logout', function(req, res){
@@ -23,10 +28,10 @@ module.exports = function (app, passport) {
   });
 
   app.get('/github/callback',
-  passport.authenticate('github', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/question/1');
+      passport.authenticate('github', { failureRedirect: '/login' }),
+      function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/question/1');
   });
 
 

@@ -3,6 +3,9 @@ header
     a(href='/') Sample Math Course
   if user
     h3 Welcome, #{user.displayName} 
+    if testing !== true    
+        a(href="/question/1") Take test
+        span  | 
     a(href="/logout") Logout
   else
     h3
