@@ -5,6 +5,7 @@
 
 var mongoose = require('mongoose');
 var home = require('home');
+var question = require('question');
 
 /**
  * Expose
@@ -13,6 +14,21 @@ var home = require('home');
 module.exports = function (app, passport) {
 
   app.get('/', home.index);
+  app.use('/question', question);
+
+  app.use('/login', passport.authenticate('github'));
+  app.use('/logout', function(req, res){
+      req.logout();
+      res.redirect("/");
+  });
+
+  app.get('/github/callback',
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/question/1');
+  });
+
 
   /**
    * Error handling

@@ -104,6 +104,8 @@ module.exports = function (app, passport) {
   app.use(helpers(pkg.name));
 
   // adds CSRF support
+  return;
+  
   if (process.env.NODE_ENV !== 'test') {
     app.use(csrf());
 

@@ -1,13 +1,13 @@
 {
-  "name": "node-express-mongoose",
-  "description": "A boilerplate application for express mongoose",
-  "version": "1.0.0",
+  "name": "sample-math-court",
+  "description": "A sample math course designed to test xAPI launch",
+  "version": "0.0.1",
   "author": {
-    "name": "Madhusudhan Srinivasa",
-    "email": "me@madhums.me"
+    "name": "Mick Muzac",
+    "email": "mick.muzac.ctr@adlnet.gov"
   },
   "engines": {
-    "node": "0.12.x"
+    "node": "5.x"
   },
   "scripts": {
     "start": "NODE_PATH=./config:./app/controllers NODE_ENV=development ./node_modules/.bin/nodemon server.js",
@@ -31,6 +31,7 @@
     "mongoose-user": "latest",
     "morgan": "1.6.1",
     "passport": "0.2.2",
+    "passport-github": "^1.1.0",
     "passport-local": "1.0.0",
     "swig": "1.4.2",
     "view-helpers": "0.1.5",
