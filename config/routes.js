@@ -4,8 +4,8 @@
  */
 
 var mongoose = require('mongoose');
-var home = require('home');
-var question = require('question');
+var home = require('../app/controllers/home');
+var question = require('../app/controllers/question');
 var request = require('request');
 
 /**

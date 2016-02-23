@@ -4,7 +4,7 @@
  */
 
 var GitHubStrategy = require('passport-github').Strategy;
-var config = require('config');
+var config = require('../config');
 
 /**
  * Expose
